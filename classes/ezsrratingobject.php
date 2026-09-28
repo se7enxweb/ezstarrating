@@ -25,12 +25,23 @@
 
 class ezsrRatingObject extends eZPersistentObject
 {
-     /**
-     * Construct, use {@link ezsrRatingObject::create()} to create new objects.
+    /**
+     * Per-request cache for stats(), keyed by content object id. A static property
+     * rather than a function static, so a persistent worker resets it between
+     * requests: it stays bounded, new votes show up, and it never crosses databases.
      *
+     * @var array
+     */
+    protected static $cachedStats = array( 0 => null );
+
+     /**
+     * Construct, shouldn't be called directly
+     * Use {@link ezsrRatingObject::create()} to create new objects.
+     *
+     * @access protected
      * @param array $row
      */
-    protected function __construct( $row )
+    public function __construct( $row )
     {
         $this->eZPersistentObject( $row );
     }
@@ -215,10 +226,9 @@ class ezsrRatingObject extends eZPersistentObject
      */
     static function stats( $ContentObjectID )
     {
-        static $cachedStats = array( 0 => null );
-        if ( isset( $cachedStats[$ContentObjectID] ) )
+        if ( isset( self::$cachedStats[$ContentObjectID] ) )
         {
-            return $cachedStats[$ContentObjectID];
+            return self::$cachedStats[$ContentObjectID];
         }
         else
         {
@@ -232,7 +242,7 @@ class ezsrRatingObject extends eZPersistentObject
             if ( isset( $return[0]['rating_count'] ) )
                 $return = $return[0];
 
-            $cachedStats[$ContentObjectID] = $return;
+            self::$cachedStats[$ContentObjectID] = $return;
         }
         return $return;
     }
