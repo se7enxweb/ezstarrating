@@ -18,7 +18,7 @@
             if ( !node.hasClass('ezsr-star-rating-disabled') )
                    node.addClass('ezsr-star-rating-enabled');
         });
-        $('ul.ezsr-star-rating-enabled li a').click( _rate );
+        $('ul.ezsr-star-rating-enabled li a').on( 'click', _rate );
     });
 
     function _rate( e )
@@ -26,7 +26,7 @@
         e.preventDefault();
         var args = $(this).attr('id').split('_');
         $('#ezsr_rating_' + args[1]).removeClass('ezsr-star-rating-enabled');
-        $('li a', '#ezsr_rating_' + args[1]).unbind( 'click' );
+        $('li a', '#ezsr_rating_' + args[1]).off( 'click' );
         jQuery.ez( 'ezstarrating::rate::' + args[1] + '::' + args[2] + '::' + args[3], {}, _callBack );
         return false;
     }
