@@ -4,6 +4,7 @@
  * 
  * This piece of code depends on jQuery and eZJSCore ( jQuery.ez() plugin ).
  *
+ * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
  * @copyright Copyright (c) 1999-2014 eZ Systems AS
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2.0
  * @package eZ Starating extension for eZ Publish

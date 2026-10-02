@@ -4,6 +4,7 @@
 //
 // SOFTWARE NAME: eZ Star Rating
 // SOFTWARE RELEASE: 2.x
+// COPYRIGHT NOTICE: Copyright (C) 1998 - 2026 7x & Exponential Foundation
 // COPYRIGHT NOTICE: Copyright (C) 2008 Bruce Morrison, 2009-2014 eZ Systems AS
 // SOFTWARE LICENSE: GNU General Public License v2.0
 // NOTICE: >
