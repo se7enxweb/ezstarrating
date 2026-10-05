@@ -72,7 +72,7 @@ class ezsrRatingObjectTreeNode extends eZContentObjectTreeNode
     
     // Needs to be forked since tree node doesn't use the asObject
     // handling in eZPersistentObject
-    static function makeObjectsArray( $array , $with_contentobject = true )
+    static function makeObjectsArray( $array , $with_contentobject = true, $propertiesOverride = null, $lang = null )
     {
         $retNodes = array();
         if ( !is_array( $array ) )

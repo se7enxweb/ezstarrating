@@ -425,7 +425,7 @@ class ezsrRatingObject extends eZPersistentObject
             }
         }
 
-        $whereSql = $whereSql ? implode( $whereSql, ' AND ') . ' AND ': '';
+        $whereSql = $whereSql ? implode( ' AND ', $whereSql ) . ' AND ': '';
 
         $extendedAttributeFilter = eZContentObjectTreeNode::createExtendedAttributeFilterSQLStrings( $params['extended_attribute_filter'] );
 
