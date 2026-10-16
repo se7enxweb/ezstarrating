@@ -44,7 +44,11 @@ class ezsrServerFunctions extends ezjscServerFunctions
     public static function rate( $args )
     {
         $ret = array( 'id' => 0, 'rated' => false, 'already_rated' => false, 'stats' => false );
-        if ( !isset( $args[2] ) )
+        // A rating changes data: only on POST, which the form token check covers. On GET an
+        // <img src=".../ezjscore/call/ezstarrating::rate::ID::VERSION::1"> on any page overwrote the visitor's vote.
+        if ( !isset( $_SERVER['REQUEST_METHOD'] ) || $_SERVER['REQUEST_METHOD'] !== 'POST' )
+            throw new InvalidArgumentException( 'Rating expects a POST request' );
+        else if ( !isset( $args[2] ) )
             throw new LengthException( 'Rating expects 3 arguments: attr_id, version, rating' );
         else if ( !is_numeric( $args[0] ) )
             throw new InvalidArgumentException( 'Rating argument[0] attr_id must be a number' );
