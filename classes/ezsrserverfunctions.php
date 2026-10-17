@@ -36,6 +36,22 @@
 class ezsrServerFunctions extends ezjscServerFunctions
 {
     /**
+     * Whether rate() may run for this request: on POST always, on another method only with
+     * site.ini [eZStarRating] AllowGetRating=enabled (off by default).
+     *
+     * @return bool
+     */
+    public static function requestMethodAllowed()
+    {
+        $method = isset( $_SERVER['REQUEST_METHOD'] ) ? strtoupper( (string)$_SERVER['REQUEST_METHOD'] ) : '';
+        if ( $method === 'POST' )
+            return true;
+        $ini = eZINI::instance();
+        return $ini->hasVariable( 'eZStarRating', 'AllowGetRating' )
+            && $ini->variable( 'eZStarRating', 'AllowGetRating' ) === 'enabled';
+    }
+
+    /**
      * Rate content object attribute id
      *
      * @param array $args ( 0 => contentobjectattribute_id,  1 => contentobject_version, 2 => rating )
@@ -46,7 +62,8 @@ class ezsrServerFunctions extends ezjscServerFunctions
         $ret = array( 'id' => 0, 'rated' => false, 'already_rated' => false, 'stats' => false );
         // A rating changes data: only on POST, which the form token check covers. On GET an
         // <img src=".../ezjscore/call/ezstarrating::rate::ID::VERSION::1"> on any page overwrote the visitor's vote.
-        if ( !isset( $_SERVER['REQUEST_METHOD'] ) || $_SERVER['REQUEST_METHOD'] !== 'POST' )
+        // site.ini [eZStarRating] AllowGetRating=enabled keeps a theme of its own that still calls the GET address working.
+        if ( !self::requestMethodAllowed() )
             throw new InvalidArgumentException( 'Rating expects a POST request' );
         else if ( !isset( $args[2] ) )
             throw new LengthException( 'Rating expects 3 arguments: attr_id, version, rating' );

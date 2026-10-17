@@ -46,6 +46,12 @@ Usage
 ----------------
 To use, simply add a Star Rating attribute to the content class you want to be rated.
 
+The stars rate through the ezjscore server function ezstarrating::rate, which answers POST requests only
+(jQuery.ez() with a post object, as design/standard/javascript/ezstarrating_jquery.js does, sends the form
+token with it). A theme of its own that still calls the GET address
+<root>/ezjscore/call/ezstarrating::rate::<attribute id>::<version>::<rating> gets "Rating expects a POST request";
+site.ini [eZStarRating] AllowGetRating=enabled keeps it working until it posts, and gives up that protection.
+
 License
 -----------------
 
