@@ -20,6 +20,8 @@
                    node.addClass('ezsr-star-rating-enabled');
         });
         $('ul.ezsr-star-rating-enabled li a').on( 'click', _rate );
+        // the stars are links to "#": after a vote (their handler is removed) a click stays on the page
+        $(document).on( 'click', 'ul.ezsr-star-rating li a[href="#"]', function( e ){ e.preventDefault(); });
     });
 
     function _rate( e )
