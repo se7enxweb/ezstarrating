@@ -6,7 +6,7 @@
     <message>
         <source>Star Rating</source>
         <comment>Datatype name</comment>
-        <translation>Star Rating</translation>
+        <translation>Valutazione a stelle</translation>
     </message>
     <message>
         <source>Currently %current_rating out of 5 Stars.</source>

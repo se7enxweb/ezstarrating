@@ -35,9 +35,12 @@
         <translation>Você já avaliou esta página, você só pode avaliar uma vez!</translation>
     </message>
     <message>
-        <source>Your rating has been changed, thanks for rating</source>
-        <comment>When rating</comment>
-        <translation type="obsolete">Sua avaliação foi alterada, obrigado por avaliar</translation>
+        <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to rate this page.</source>
+        <translation>%login_link_startLogar%login_link_end ou %create_link_startCriar uma conta de usuário%create_link_end para avaliar esta página.</translation>
+    </message>
+    <message>
+        <source>%login_link_startLog in%login_link_end to rate this page.</source>
+        <translation>%login_link_startLogar%login_link_end para avaliar esta página.</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -55,14 +58,6 @@
     <message>
         <source>You don&apos;t have access to rate this page.</source>
         <translation>Você não possui acesso para avaliar esta página.</translation>
-    </message>
-    <message>
-        <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to rate this page.</source>
-        <translation>%login_link_startLogar%login_link_end ou %create_link_startCriar uma conta de usuário%create_link_end para avaliar esta página.</translation>
-    </message>
-    <message>
-        <source>%login_link_startLog in%login_link_end to rate this page.</source>
-        <translation>%login_link_startLogar%login_link_end para avaliar esta página.</translation>
     </message>
 </context>
 <context>
