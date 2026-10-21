@@ -36,11 +36,11 @@
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to rate this page.</source>
-        <translation>%login_link_startLog in%login_link_end o %create_link_startcrea un account%create_link_end per votare questa pagina.</translation>
+        <translation>%login_link_startAccedi%login_link_end o %create_link_startcrea un account%create_link_end per votare questa pagina.</translation>
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end to rate this page.</source>
-        <translation>%login_link_startLog in%login_link_end per votare questa pagina.</translation>
+        <translation>%login_link_startAccedi%login_link_end per votare questa pagina.</translation>
     </message>
     <message>
         <source>Disabled</source>
