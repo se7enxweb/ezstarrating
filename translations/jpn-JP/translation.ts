@@ -14,7 +14,7 @@
     </message>
     <message>
         <source>Rate %rating stars out of 5</source>
-        <translation>5内で評価を付ける</translation>
+        <translation>5段階中%ratingで評価する</translation>
     </message>
     <message>
         <source>Rating: %current_rating/5</source>
