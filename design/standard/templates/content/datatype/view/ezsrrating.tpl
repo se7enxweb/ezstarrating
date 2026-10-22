@@ -6,7 +6,7 @@
       <span class="fn">{$attribute.object.name|wash}</span>
    </span>
 
-    <ul id="ezsr_rating_{$attribute.id}" class="ezsr-star-rating">
+    <ul id="ezsr_rating_{$attribute.id}" class="ezsr-star-rating" data-ezsr-call={'ezjscore/call'|ezurl}>
     <li id="ezsr_rating_percent_{$attribute.id}" class="ezsr-current-rating" style="width:{$rating.rounded_average|div(5)|mul(100)}%;">{'Currently %current_rating out of 5 Stars.'|i18n('extension/ezstarrating/datatype', '', hash( '%current_rating', concat('<span>', $rating.rounded_average|wash, '</span>') ))}</li>
     {for 1 to 5 as $num}
 	<li><a{if $ezsr_can_rate} href="#"{/if} id="ezsr_{$attribute.id}_{$attribute.version}_{$num}" title="{'Rate %rating stars out of 5'|i18n('extension/ezstarrating/datatype', '', hash( '%rating', $num ))}" class="ezsr-stars-{$num}" rel="nofollow">{$num}</a></li>
@@ -28,9 +28,10 @@
 {ezcss_require( 'star_rating.css' )}
 {* Enable rating code if not disabled on attribute and user has access to rate! *}
 {if $ezsr_can_rate}
-    {* The rating runs on jQuery (design/standard/javascript/ezstarrating_jquery.js): the stars are links to "#" that the
-       script handles, without inline code. Without the right to rate they are no links. *}
-    {ezscript_require( array( 'ezjsc::jquery', 'ezjsc::jqueryio', 'ezstarrating_jquery.js' ) )}
+    {* The rating runs on plain JavaScript (design/standard/javascript/ezstarrating.js, no jQuery): the stars are links
+       to "#" that the script handles, without inline code; it posts to the address in the list's data-ezsr-call.
+       Without the right to rate they are no links. *}
+    {ezscript_require( array( 'ezstarrating.js' ) )}
 {else}
     {if fetch( 'user', 'current_user' ).is_logged_in}
         <p id="ezsr_no_permission_{$attribute.id}" class="ezsr-no-permission">{"You don't have access to rate this page."|i18n( 'extension/ezstarrating/datatype' )}</p>

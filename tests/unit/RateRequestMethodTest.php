@@ -73,10 +73,16 @@ class RateRequestMethodTest extends TestCase
         $this->assertMatchesRegularExpression( '/\[eZStarRating\][^\[]*\nAllowGetRating=disabled\n/', $ini );
     }
 
-    public function testTheShippedScriptPosts(): void
+    public function testTheShippedScriptsPost(): void
     {
-        $js = (string)file_get_contents( dirname( __DIR__, 2 ) . '/design/standard/javascript/ezstarrating_jquery.js' );
-        // jQuery.ez() with a post object (here {}) posts, and sends the form token
+        $dir = dirname( __DIR__, 2 ) . '/design/standard/javascript/';
+        // ezsrrating.tpl's script posts the call with the form token, as jQuery.ez() with a post object does
+        $js = (string)file_get_contents( $dir . 'ezstarrating.js' );
+        $this->assertStringContainsString( "xhr.open( 'POST', url + '/', true );", $js );
+        $this->assertStringContainsString( "'ezjscServer_function_arguments=' + encodeURIComponent( callArgs ) + '&ezxform_token='", $js );
+        $this->assertStringContainsString( "_post( list, 'ezstarrating::rate::'", $js );
+        // the jQuery script, kept for templates of their own: jQuery.ez() with a post object (here {})
+        $js = (string)file_get_contents( $dir . 'ezstarrating_jquery.js' );
         $this->assertMatchesRegularExpression( "/jQuery\\.ez\\(\\s*'ezstarrating::rate::'[^;]*,\\s*\\{\\}\\s*,/", $js );
     }
 }
