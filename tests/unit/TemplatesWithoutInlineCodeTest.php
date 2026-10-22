@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * The templates carry no inline script, no event handler attribute and no javascript: link, so a page that shows a
  * rating runs under a Content Security Policy without 'unsafe-inline'. The stars are links to "#" handled by
- * design/standard/javascript/ezstarrating_jquery.js.
+ * design/standard/javascript/ezstarrating.js (plain JavaScript, no jQuery), which posts to the list's data-ezsr-call.
  */
 class TemplatesWithoutInlineCodeTest extends TestCase
 {
@@ -43,7 +43,10 @@ class TemplatesWithoutInlineCodeTest extends TestCase
         $source = file_get_contents( dirname( __DIR__, 2 ) . '/design/standard/templates/content/datatype/view/ezsrrating.tpl' );
         $this->assertStringContainsString( '<a{if $ezsr_can_rate} href="#"{/if}', $source );
         $this->assertStringContainsString( "{if \$ezsr_can_rate}", $source );
-        $script = file_get_contents( dirname( __DIR__, 2 ) . '/design/standard/javascript/ezstarrating_jquery.js' );
+        $this->assertStringContainsString( "data-ezsr-call={'ezjscore/call'|ezurl}", $source );
+        $this->assertStringContainsString( "{ezscript_require( array( 'ezstarrating.js' ) )}", $source );
+        $this->assertStringNotContainsString( 'ezjsc::jquery', $source );
+        $script = file_get_contents( dirname( __DIR__, 2 ) . '/design/standard/javascript/ezstarrating.js' );
         $this->assertStringContainsString( "a[href=\"#\"]", $script );
     }
 }

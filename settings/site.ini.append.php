@@ -32,7 +32,7 @@ AllowAnonymousRating=disabled
 
 # The server function ezstarrating::rate changes data, so it answers POST requests only: the form token check covers
 # POST, and an <img> or a link to its GET address on another page can no longer rate in the visitor's name. The shipped
-# script (ezstarrating_jquery.js, jQuery.ez() with a post object) posts. A theme of its own that still calls the GET
+# script (ezstarrating.js; ezstarrating_jquery.js with jQuery.ez() and a post object) posts. A theme of its own that still calls the GET
 # address keeps working with enabled here until it posts; enabled gives up that protection.
 AllowGetRating=disabled
 
