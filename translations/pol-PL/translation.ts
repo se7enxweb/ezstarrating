@@ -14,7 +14,7 @@
     </message>
     <message>
         <source>Rate %rating stars out of 5</source>
-        <translation>Oceń na %rating z 5 gwiazdek</translation>
+        <translation>Ocenić na %rating z 5 gwiazdek</translation>
     </message>
     <message>
         <source>Rating: %current_rating/5</source>
