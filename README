@@ -54,8 +54,14 @@ the update script for its database once:
 On MySQL/MariaDB, PostgreSQL (11 or later) and Oracle (12c or later) it widens the column and hashes
 the stored session ids in place, so a visitor who rated before the update is still recognised in the
 same session. SQLite has no SHA-256 function: the script clears the stored session ids there, the
-ratings themselves stay. Until the script has run, anonymous visitors are not recognised as having
-rated and on MySQL/MariaDB with STRICT_TRANS_TABLES storing a rating fails.
+ratings themselves stay.
+
+Order: run the script first and deploy the code right after it.
+- New code before the script writes 64 characters into the 32 character column: the insert fails
+  (MySQL/MariaDB in strict mode, PostgreSQL "value too long", Oracle ORA-12899), or, without strict
+  mode, MySQL/MariaDB silently cut the hash to 32 characters. Such rows are never recognised again,
+  and the script would hash them once more.
+- Old code after the script still stores raw session ids, and does not recognise the hashed ones.
 
 Usage
 ----------------
