@@ -42,6 +42,27 @@ Follow these steps to add the eZ Star Rating module to your eZ publish installat
        page in the administration interfacea policy on module "ezjscore", function
        "call", with limitation "ezstarrating_rate"
      
+Upgrading
+-----------------
+Since 6.0.17 ezstarrating_data.session_key holds a SHA-256 hash of the session id (64 hex characters)
+instead of the session id itself: whoever could read the table could take over the sessions listed in
+it, and session ids longer than 32 characters did not fit the column. An existing installation runs
+the update script for its database once:
+
+       update/database/<database>/6.0.17/dbupdate-6.0.16-to-6.0.17.sql
+
+On MySQL/MariaDB, PostgreSQL (11 or later) and Oracle (12c or later) it widens the column and hashes
+the stored session ids in place, so a visitor who rated before the update is still recognised in the
+same session. SQLite has no SHA-256 function: the script clears the stored session ids there, the
+ratings themselves stay.
+
+Order: run the script first and deploy the code right after it.
+- New code before the script writes 64 characters into the 32 character column: the insert fails
+  (MySQL/MariaDB in strict mode, PostgreSQL "value too long", Oracle ORA-12899), or, without strict
+  mode, MySQL/MariaDB silently cut the hash to 32 characters. Such rows are never recognised again,
+  and the script would hash them once more.
+- Old code after the script still stores raw session ids, and does not recognise the hashed ones.
+
 Usage
 ----------------
 To use, simply add a Star Rating attribute to the content class you want to be rated.
