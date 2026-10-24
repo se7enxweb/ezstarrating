@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS `ezstarrating_data` (
   `id` int(11) NOT NULL auto_increment,
   `created_at` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `session_key` varchar(32) NOT NULL,
+  `session_key` varchar(64) NOT NULL,
   `rating` float NOT NULL,
   `contentobject_id` int(11) NOT NULL,
   `contentobject_attribute_id` int(11) NOT NULL,

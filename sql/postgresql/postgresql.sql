@@ -9,7 +9,7 @@ CREATE TABLE ezstarrating_data (
   id integer DEFAULT nextval('ezstarrating_data_s'::text) NOT NULL,
   created_at integer DEFAULT 0 NOT NULL,
   user_id integer DEFAULT 0 NOT NULL,
-  session_key character varying(32) NOT NULL,
+  session_key character varying(64) NOT NULL,
   rating real DEFAULT 0::real NOT NULL,
   contentobject_id integer DEFAULT 0 NOT NULL,
   contentobject_attribute_id integer DEFAULT 0 NOT NULL
