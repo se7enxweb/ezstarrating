@@ -1,4 +1,4 @@
-Changes from version 6.0.17 to 6.0.18
+Changes from version 6.0.17 to 6.0.18 (2026-10-26)
 ====================================
 
 *Bugs*
@@ -6,7 +6,24 @@ Changes from version 6.0.17 to 6.0.18
 - Fix: ezstarrating_data.session_key stores a SHA-256 hash of the session id instead of the session id,
   and is 64 characters wide; update/database/<database>/6.0.18/dbupdate-6.0.17-to-6.0.18.sql
   migrates existing installations; run it first and deploy the code right after it
-  (see README, "Upgrading")
+  (see README, "Upgrading"); from ekked's pull request #11. The update script can be run twice.
+- Fix: A rating the server refuses shows the server's error text (ezjscore's error_text) instead of
+  "undefined".
+
+*Enhancements*
+
+- The star rating runs without jQuery, from ekked's pull request #8.
+- Swahili (Kenya) translation, from ekked's pull request #9.
+- Translations into eighteen more administration languages: Hindi, Korean, Bosnian, Lower Sorbian,
+  Estonian, Irish, Icelandic, Greenlandic, Latvian, Hungarian, Maltese, Romanian, Albanian, Slovak,
+  Slovenian, Japanese, Greek and Finnish, from ekked's pull request #10.
+- Russian, Catalan, Serbian (Cyrillic and Latin), Bulgarian, Lithuanian, Portuguese (Portugal) and
+  Afrikaans translations, from ekked's pull request #12.
+- Translations into seventeen languages from South Asia and Africa: Bengali, Urdu, Marathi, Telugu,
+  Tamil, Gujarati, Kannada, Malayalam, Punjabi, Odia, Hausa, Amharic, Yoruba, Igbo, isiZulu, Somali and
+  isiXhosa, from ekked's pull request #13.
+- Chinese translations in Simplified (chi-CN) and Traditional (chi-TW) script; chi-HK falls back to
+  chi-TW, from ekked's pull request #14.
 
 
 Changes from version 1.3.0 to 1.4.0
