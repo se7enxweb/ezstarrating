@@ -316,7 +316,7 @@ class ezsrRatingDataObject extends eZPersistentObject
                 eZSession::start();
             }
 
-            $row['session_key'] = $http->sessionID();
+            $row['session_key'] = self::sessionKey( $http->sessionID() );
         }
 
         if ( !isset( $row['user_id'] ) )
@@ -344,6 +344,22 @@ class ezsrRatingDataObject extends eZPersistentObject
     }
 
     /**
+     * The value stored in and matched against ezstarrating_data.session_key for a session id.
+     *
+     * The session id itself is never stored: anyone able to read the table could take over the
+     * sessions in it, and session ids longer than the column would not fit. A SHA-256 hash is
+     * 64 hex characters whatever the session id length; no session (empty id) stays empty.
+     *
+     * @param string $sessionId
+     * @return string
+     */
+    static function sessionKey( $sessionId )
+    {
+        $sessionId = (string)$sessionId;
+        return $sessionId === '' ? '' : hash( 'sha256', $sessionId );
+    }
+
+    /**
      * Fetch rating ( avrage + total + raw rating data ) by conditions
      *
      * @param array $params (see inline doc for possible conditions)
@@ -356,7 +372,7 @@ class ezsrRatingDataObject extends eZPersistentObject
          *   int 'contentobject_id'
          *   int 'contentobject_attribute_id'
          *   int 'user_id'
-         *   string 'session_key'
+         *   string 'session_key' The stored value, i.e. the hash from sessionKey(), not the session id
          *   bool 'as_object' By default: true
          *
          *   Conditions can be combined as you wish,
