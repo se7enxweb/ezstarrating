@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="hi_IN">
+<context>
+    <name>extension/ezstarrating/datatype</name>
+    <message>
+        <source>Star Rating</source>
+        <comment>Datatype name</comment>
+        <translation>स्टार रेटिंग</translation>
+    </message>
+    <message>
+        <source>Currently %current_rating out of 5 Stars.</source>
+        <translation>वर्तमान में 5 में से %current_rating स्टार।</translation>
+    </message>
+    <message>
+        <source>Rate %rating stars out of 5</source>
+        <translation>5 में से %rating स्टार रेटिंग दें</translation>
+    </message>
+    <message>
+        <source>Rating: %current_rating/5</source>
+        <translation>रेटिंग: %current_rating/5</translation>
+    </message>
+    <message>
+        <source>%rating_count votes cast</source>
+        <translation>%rating_count वोट दिए गए</translation>
+    </message>
+    <message>
+        <source>Thank you for rating!</source>
+        <comment>When rating</comment>
+        <translation>रेटिंग देने के लिए धन्यवाद!</translation>
+    </message>
+    <message>
+        <source>You have already rated this page, you can only rate it once!</source>
+        <comment>When rating</comment>
+        <translation>आप इस पृष्ठ को पहले ही रेटिंग दे चुके हैं, आप इसे केवल एक बार रेटिंग दे सकते हैं!</translation>
+    </message>
+    <message>
+        <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to rate this page.</source>
+        <translation>इस पृष्ठ को रेटिंग देने के लिए %login_link_startलॉग इन करें%login_link_end या %create_link_startउपयोगकर्ता खाता बनाएँ%create_link_end।</translation>
+    </message>
+    <message>
+        <source>%login_link_startLog in%login_link_end to rate this page.</source>
+        <translation>इस पृष्ठ को रेटिंग देने के लिए %login_link_startलॉग इन करें%login_link_end।</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation>अक्षम</translation>
+    </message>
+    <message>
+        <source>disabled</source>
+        <translation>अक्षम</translation>
+    </message>
+    <message>
+        <source>Your rating has been changed, thanks for rating!</source>
+        <comment>When rating</comment>
+        <translation>आपकी रेटिंग बदल दी गई है, रेटिंग देने के लिए धन्यवाद!</translation>
+    </message>
+    <message>
+        <source>You don&apos;t have access to rate this page.</source>
+        <translation>आपको इस पृष्ठ को रेटिंग देने की अनुमति नहीं है।</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/content</name>
+    <message>
+        <source>Top Level Nodes</source>
+        <translation>शीर्ष स्तर के नोड</translation>
+    </message>
+</context>
+</TS>
