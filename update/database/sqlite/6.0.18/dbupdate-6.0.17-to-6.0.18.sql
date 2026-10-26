@@ -3,4 +3,5 @@
 -- keeps its definition. SQLite has no built-in SHA-256 either: the stored session ids are
 -- cleared instead of hashed. The ratings and their averages stay; anonymous visitors who rated
 -- before the update may rate the same content once more in their current session.
-UPDATE ezstarrating_data SET session_key = '' WHERE session_key <> '';
+-- Hashes the code stored already (64 characters) stay, so a second run changes nothing more.
+UPDATE ezstarrating_data SET session_key = '' WHERE session_key <> '' AND length(session_key) <> 64;

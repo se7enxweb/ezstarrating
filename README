@@ -44,12 +44,12 @@ Follow these steps to add the eZ Star Rating module to your eZ publish installat
      
 Upgrading
 -----------------
-Since 6.0.17 ezstarrating_data.session_key holds a SHA-256 hash of the session id (64 hex characters)
+Since 6.0.18 ezstarrating_data.session_key holds a SHA-256 hash of the session id (64 hex characters)
 instead of the session id itself: whoever could read the table could take over the sessions listed in
 it, and session ids longer than 32 characters did not fit the column. An existing installation runs
 the update script for its database once:
 
-       update/database/<database>/6.0.17/dbupdate-6.0.16-to-6.0.17.sql
+       update/database/<database>/6.0.18/dbupdate-6.0.17-to-6.0.18.sql
 
 On MySQL/MariaDB, PostgreSQL (11 or later) and Oracle (12c or later) it widens the column and hashes
 the stored session ids in place, so a visitor who rated before the update is still recognised in the

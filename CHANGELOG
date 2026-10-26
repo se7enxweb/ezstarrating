@@ -1,10 +1,10 @@
-Changes from version 6.0.16 to 6.0.17
+Changes from version 6.0.17 to 6.0.18
 ====================================
 
 *Bugs*
 
 - Fix: ezstarrating_data.session_key stores a SHA-256 hash of the session id instead of the session id,
-  and is 64 characters wide; update/database/<database>/6.0.17/dbupdate-6.0.16-to-6.0.17.sql
+  and is 64 characters wide; update/database/<database>/6.0.18/dbupdate-6.0.17-to-6.0.18.sql
   migrates existing installations; run it first and deploy the code right after it
   (see README, "Upgrading")
 
