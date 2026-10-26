@@ -99,7 +99,7 @@
 
     function _callBack( data )
     {
-        if ( data && data.content !== '' )
+        if ( data && data.content )
         {
             if ( data.content.rated )
             {
@@ -120,7 +120,9 @@
         {
             // This shouldn't happen as we have already checked access in the template..
             // Unless this is inside a aggressive cache-block of course.
-            window.alert( data.content.error_text );
+            // ezjscore puts the error in error_text next to content (which is empty then)
+            if ( data && data.error_text )
+                window.alert( data.error_text );
         }
     }
 })( window, document );
