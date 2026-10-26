@@ -38,5 +38,33 @@
         <comment>When rating</comment>
         <translation>You have already rated this page, you can only rate it once!</translation>
     </message>
+    <message>
+        <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to rate this page.</source>
+        <translation>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to rate this page.</translation>
+    </message>
+    <message>
+        <source>%login_link_startLog in%login_link_end to rate this page.</source>
+        <translation>%login_link_startLog in%login_link_end to rate this page.</translation>
+    </message>
+    <message>
+        <source>disabled</source>
+        <translation>disabled</translation>
+    </message>
+    <message>
+        <source>Your rating has been changed, thanks for rating!</source>
+        <comment>When rating</comment>
+        <translation>Your rating has been changed, thanks for rating!</translation>
+    </message>
+    <message>
+        <source>You don&apos;t have access to rate this page.</source>
+        <translation>You don&apos;t have access to rate this page.</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/content</name>
+    <message>
+        <source>Top Level Nodes</source>
+        <translation>Top Level Nodes</translation>
+    </message>
 </context>
 </TS>
