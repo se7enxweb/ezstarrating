@@ -4,7 +4,7 @@ CREATE TABLE ezstarrating_data (
   id integer NOT NULL,
   created_at integer DEFAULT 0 NOT NULL,
   user_id integer DEFAULT 0 NOT NULL,
-  session_key varchar2(32) NOT NULL,
+  session_key varchar2(64) NOT NULL,
   rating double precision DEFAULT 0 NOT NULL,
   contentobject_id integer DEFAULT 0 NOT NULL,
   contentobject_attribute_id integer DEFAULT 0 NOT NULL,
