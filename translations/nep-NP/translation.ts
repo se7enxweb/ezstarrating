@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>extension/ezstarrating/datatype</name>
+    <message>
+        <source>Star Rating</source>
+        <comment>Datatype name</comment>
+        <translation>स्टार रेटिङ</translation>
+    </message>
+    <message>
+        <source>Currently %current_rating out of 5 Stars.</source>
+        <translation>हाल 5 मध्ये %current_rating तारा।</translation>
+    </message>
+    <message>
+        <source>Rate %rating stars out of 5</source>
+        <translation>5 मध्ये %rating तारा मूल्याङ्कन गर्नुहोस्</translation>
+    </message>
+    <message>
+        <source>Rating: %current_rating/5</source>
+        <translation>रेटिङ: %current_rating/5</translation>
+    </message>
+    <message>
+        <source>%rating_count votes cast</source>
+        <translation>%rating_count मत खसाले</translation>
+    </message>
+    <message>
+        <source>Thank you for rating!</source>
+        <comment>When rating</comment>
+        <translation>मूल्याङ्कन गरेकोमा धन्यवाद!</translation>
+    </message>
+    <message>
+        <source>You have already rated this page, you can only rate it once!</source>
+        <comment>When rating</comment>
+        <translation>तपाईंले यो पृष्ठ पहिल्यै मूल्याङ्कन गरिसक्नुभएको छ, एक पटक मात्र मूल्याङ्कन गर्न सकिन्छ!</translation>
+    </message>
+    <message>
+        <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to rate this page.</source>
+        <translation>यो पृष्ठ मूल्याङ्कन गर्न %login_link_startलग इन गर्नुहोस्%login_link_end वा %create_link_startप्रयोगकर्ता खाता सिर्जना गर्नुहोस्%create_link_end।</translation>
+    </message>
+    <message>
+        <source>%login_link_startLog in%login_link_end to rate this page.</source>
+        <translation>यो पृष्ठ मूल्याङ्कन गर्न %login_link_startलग इन गर्नुहोस्%login_link_end।</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation>असक्षम</translation>
+    </message>
+    <message>
+        <source>disabled</source>
+        <translation>असक्षम</translation>
+    </message>
+    <message>
+        <source>Your rating has been changed, thanks for rating!</source>
+        <comment>When rating</comment>
+        <translation>तपाईंको रेटिङ परिवर्तन गरियो, मूल्याङ्कन गरेकोमा धन्यवाद!</translation>
+    </message>
+    <message>
+        <source>You don&apos;t have access to rate this page.</source>
+        <translation>तपाईंसँग यो पृष्ठ मूल्याङ्कन गर्ने पहुँच छैन।</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/content</name>
+    <message>
+        <source>Top Level Nodes</source>
+        <translation>शीर्ष तहका नोडहरू</translation>
+    </message>
+</context>
+</TS>
